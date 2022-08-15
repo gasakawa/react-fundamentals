@@ -1,16 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Post({ title, subtitle }) {
+export default function Post({ title, subtitle, likes, id }) {
   return (
     <>
       <article>
         <strong>{title}</strong>
         <br />
         <small>{subtitle}</small>
+        <br />
+        <span>Likes: {likes}</span>
       </article>
       <br />
     </>
   );
 }
 
-export default Post;
+Post.propTypes = {
+  likes: PropTypes.number.isRequired,
+  subtitle: PropTypes.string,
+  title: PropTypes.string,
+  id: PropTypes.number,
+};
