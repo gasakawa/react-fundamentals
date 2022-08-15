@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from './Header';
 
 import Post from './Post';
 
@@ -41,8 +42,7 @@ export default function App() {
 
   return (
     <>
-      <h1>Blog</h1>
-      <h2>Posts of the week</h2>
+      <Header title="Gabriel's Blog" subtitle="Week posts" />
       <button onClick={handleRefresh}>Atualizar</button>
       {posts.map((post) => (
         <Post
