@@ -1,22 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import PostHeader from './PostHeader';
 
 export default function Post({ title, subtitle, likes, onRemove, id, read }) {
+  const post = {
+    title,
+    subtitle,
+    likes,
+    onRemove,
+    id,
+    read,
+  };
   return (
     <>
       <article>
-        <strong> {!read ? title : <s>{title}</s>}</strong>
-        <br />
-        <small>{subtitle}</small>
-        <br />
-        <span>Likes: {likes}</span>
-        <button
-          onClick={() => {
-            onRemove(id);
-          }}
-        >
-          Remover
-        </button>
+        <PostHeader post={post} onRemove={(id) => onRemove(id)} />
       </article>
       <br />
     </>
