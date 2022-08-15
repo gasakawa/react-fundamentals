@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Post({ title, subtitle, likes, onRemove, id }) {
+export default function Post({ title, subtitle, likes, onRemove, id, read }) {
   return (
     <>
       <article>
-        <strong>{title}</strong>
+        <strong> {!read ? title : <s>{title}</s>}</strong>
         <br />
         <small>{subtitle}</small>
         <br />
@@ -29,4 +29,5 @@ Post.propTypes = {
   title: PropTypes.string,
   id: PropTypes.number,
   onRemove: PropTypes.func.isRequired,
+  read: PropTypes.bool,
 };
