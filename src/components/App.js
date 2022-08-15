@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './Header';
 
 import Post from './Post';
+import { ThemeProvider } from './ThemeContext';
 
 export default function App() {
   const [posts, setPosts] = useState([
@@ -41,7 +42,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <ThemeProvider>
       <Header title="Gabriel's Blog" subtitle="Week posts" />
       <button onClick={handleRefresh}>Atualizar</button>
       <br />
@@ -59,6 +60,6 @@ export default function App() {
           read={post.read}
         />
       ))}
-    </>
+    </ThemeProvider>
   );
 }
