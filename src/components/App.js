@@ -14,6 +14,7 @@ export default function App() {
       subtitle: 'Sub#01',
       likes: 1,
       read: false,
+      removed: false,
     },
     {
       id: Math.random(),
@@ -21,6 +22,7 @@ export default function App() {
       subtitle: 'Sub#02',
       likes: 12,
       read: true,
+      removed: true,
     },
   ]);
 
@@ -33,13 +35,21 @@ export default function App() {
         subtitle: `Sub#0${prevState.length + 1}`,
         likes: 10,
         read: false,
+        removed: false,
       },
     ]);
   }
 
   function handleRemovePost(id) {
     setPosts((prevState) => {
-      return prevState.filter((post) => post.id !== id);
+      return prevState.map((post) =>
+        post.id === id
+          ? {
+              ...post,
+              removed: true,
+            }
+          : post
+      );
     });
   }
 
@@ -60,6 +70,7 @@ export default function App() {
           }}
           id={post.id}
           read={post.read}
+          removed={post.removed}
         />
       ))}
     </ThemeProvider>

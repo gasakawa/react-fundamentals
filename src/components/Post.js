@@ -2,7 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PostHeader from './PostHeader';
 
-export default function Post({ title, subtitle, likes, onRemove, id, read }) {
+import styles from '../styles/post.scss';
+
+export default function Post({
+  title,
+  subtitle,
+  likes,
+  onRemove,
+  id,
+  read,
+  removed,
+}) {
   const post = {
     title,
     subtitle,
@@ -12,12 +22,11 @@ export default function Post({ title, subtitle, likes, onRemove, id, read }) {
     read,
   };
   return (
-    <>
-      <article>
-        <PostHeader post={post} onRemove={(id) => onRemove(id)} />
-      </article>
-      <br />
-    </>
+    <article
+      className={removed ? `${styles.post} ${styles.deleted}` : styles.post}
+    >
+      <PostHeader post={post} onRemove={(id) => onRemove(id)} />
+    </article>
   );
 }
 
