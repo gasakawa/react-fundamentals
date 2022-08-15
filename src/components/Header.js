@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Button from './Button';
 import { ThemeContext } from './ThemeContext';
 
-import styles from '../styles/header.css';
+import styles from '../styles/header.scss';
 
 function Header(props) {
   const { onToggleTheme } = useContext(ThemeContext);
