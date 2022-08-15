@@ -19,6 +19,12 @@ export default function App() {
     ]);
   }
 
+  function handleRemovePost(id) {
+    setPosts((prevState) => {
+      return prevState.filter((post) => post.id !== id);
+    });
+  }
+
   return (
     <>
       <h1>Blog</h1>
@@ -30,6 +36,10 @@ export default function App() {
           title={post.title}
           subtitle={post.subtitle}
           likes={post.likes}
+          onRemove={(id) => {
+            handleRemovePost(id);
+          }}
+          id={post.id}
         />
       ))}
     </>
