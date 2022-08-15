@@ -44,6 +44,8 @@ export default function App() {
     <>
       <Header title="Gabriel's Blog" subtitle="Week posts" />
       <button onClick={handleRefresh}>Atualizar</button>
+      <br />
+      <br />
       {posts.map((post) => (
         <Post
           key={post.id}
