@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PostHeader from './PostHeader';
 
-import styles from './post.scss';
-
+import * as S from './styles';
 export default function Post({
   title,
   subtitle,
@@ -22,11 +21,9 @@ export default function Post({
     read,
   };
   return (
-    <article
-      className={removed ? `${styles.post} ${styles.deleted}` : styles.post}
-    >
+    <S.Container removed={removed}>
       <PostHeader post={post} onRemove={(id) => onRemove(id)} />
-    </article>
+    </S.Container>
   );
 }
 
