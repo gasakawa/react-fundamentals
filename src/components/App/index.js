@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import Header from './Header';
+import Header from '../Header';
 
-import Post from './Post';
-import { ThemeProvider } from './ThemeContext';
-
-import '../styles/index.scss';
+import Post from '../Post';
+import { ThemeProvider } from '../../context/ThemeContext';
 
 export default function App() {
   const [posts, setPosts] = useState([

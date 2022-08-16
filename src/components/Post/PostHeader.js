@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button';
+import Button from '../Button';
 
 function PostHeader({ post: { title, read, subtitle, onRemove, id } }) {
   return (
