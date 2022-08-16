@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import Header from '../Header';
 
 import Post from '../Post';
-import { ThemeProvider } from '../../context/ThemeContext';
+
+import themes from '../../styles/themes';
 
 export default function App() {
+  const [theme, setTheme] = useState('dark');
+
+  const currentTheme = useMemo(() => {
+    return themes[theme] || themes.dark;
+  }, [theme]);
+
   const [posts, setPosts] = useState([
     {
       id: Math.random(),
@@ -52,7 +59,7 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider>
+    <>
       <Header title="Gabriel's Blog" subtitle="Week posts" />
       <button onClick={handleRefresh}>Atualizar</button>
       <br />
@@ -71,6 +78,6 @@ export default function App() {
           removed={post.removed}
         />
       ))}
-    </ThemeProvider>
+    </>
   );
 }

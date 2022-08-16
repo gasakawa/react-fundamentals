@@ -6,7 +6,7 @@ import Button from '../Button';
 import { ThemeContext } from '../../context/ThemeContext';
 
 const Title = styled.h1`
-  color: #637bf3;
+  color: ${(props) => props.theme.textColor};
 `;
 
 function Header(props) {
